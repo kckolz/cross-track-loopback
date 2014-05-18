@@ -6,11 +6,11 @@ var athleteSchema = new mongoose.Schema({
   email: { type: String, default:'' },
   password: String,
 
-  facebook: { type: String, unique: true, sparse: true },
-  twitter: { type: String, unique: true, sparse: true },
-  google: { type: String, unique: true, sparse: true },
-  github: { type: String, unique: true, sparse: true },
-  tokens: [ { kind: String, accessToken: String, tokenSecret: String } ],
+  // facebook: { type: String, unique: true, sparse: true },
+  // twitter: { type: String, unique: true, sparse: true },
+  // google: { type: String, unique: true, sparse: true },
+  // github: { type: String, unique: true, sparse: true },
+  // tokens: [ { kind: String, accessToken: String, tokenSecret: String } ],
 
   profile: {
     name: { type: String, default: '' },
