@@ -1,19 +1,28 @@
 extends layout
 
 block body
-  div(ng-controller='AppCtrl')
-    h2 Hello {{name}}
-    ul.menu
-      li
-        a(href='view1') view1
-      li
-        a(href='view2') view2
+    div(class="ui menu")
+        a(class="active item")
+            i(class="home icon")
+        a(class="item")
+            i(class="mail icon")
+        div(class="right menu")
+            a(class="ui item")="Login"
+    div(class="ui page grid")
+        div(class="column")
 
-    div(ng-view)
+            h2 Hello {{name}}
+            ul.menu
+              li
+                a(href='view1') view1
+              li
+                a(href='view2') view2
 
-    div
-      | Angular seed app: v
-      span(app-version)
+            div(ng-view)
+
+            div
+              | Angular seed app: v
+              span(app-version)
 
   script(src='js/lib/angular/angular.js')
   script(src='js/app.js')
