@@ -58,7 +58,15 @@ mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
-  //do some shit
+  console.log("DB Connection Open");
+  db.collection('exercises', {strict:true}, function(err, collection) {
+    if (err) {
+        console.log("The 'exercises' collection doesn't exist. Creating it with sample data...");
+        populateDB();
+    }
+  });
+  Exercise.findOne({title: 'Back Squat'}, function(err,obj) { console.log(obj); });
+
 });
 
 /**
@@ -68,3 +76,21 @@ db.once('open', function callback () {
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Populate database with sample data -- Only used once: the first time the application is started.
+var Exercise = require('./models/Exercise');
+var populateDB = function() {
+ 
+  var backSquat = new Exercise(
+    { 
+      title: 'Back Squat',
+      classification: 'weightlifting'
+    }
+  );
+
+  backSquat.save(function (err, fluffy) {
+    if (err) return console.error(err);
+  }); 
+};
