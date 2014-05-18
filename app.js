@@ -7,7 +7,9 @@ var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
   http = require('http'),
-  path = require('path');
+  path = require('path'),
+  mongoose = require('mongoose');
+
 
 var app = module.exports = express();
 
@@ -51,6 +53,13 @@ app.get('/api/name', api.name);
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
 
+// Database Init
+mongoose.connect('mongodb://localhost/test');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  //do some shit
+});
 
 /**
  * Start Server
