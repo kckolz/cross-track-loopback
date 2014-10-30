@@ -1,9 +1,9 @@
 'use strict';
 
-/* Filters */
+var crossTrackFilters = angular.module('crossTrackFilters', []);
 
-angular.module('myApp.filters', []).
-  filter('interpolate', function (version) {
+/* Filters */
+crossTrackFilters.filter('interpolate', function (version) {
     return function (text) {
       return String(text).replace(/\%VERSION\%/mg, version);
     };

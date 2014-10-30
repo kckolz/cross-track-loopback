@@ -1,9 +1,9 @@
 'use strict';
 
-/* Directives */
+var crossTrackDirectives = angular.module('crossTrackDirectives', []);
 
-angular.module('myApp.directives', []).
-  directive('appVersion', function (version) {
+/* Directives */
+crossTrackDirectives.directive('appVersion', function (version) {
     return function(scope, elm, attrs) {
       elm.text(version);
     };

@@ -1,27 +1,30 @@
 'use strict';
 
+var crossTrackControllers = angular.module('crossTrackControllers', []);
+
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('AppCtrl', function ($scope, $http) {
+crossTrackControllers.controller('AppController', function ($scope, $http) {
 
-    $http({
-      method: 'GET',
-      url: '/api/name'
-    }).
-    success(function (data, status, headers, config) {
-      $scope.name = data.name;
-    }).
-    error(function (data, status, headers, config) {
-      $scope.name = 'Error!';
-    });
-
+  $http({
+    method: 'GET',
+    url: '/api/name'
   }).
-  controller('MyCtrl1', function ($scope) {
-    // write Ctrl here
-
+  success(function (data, status, headers, config) {
+    $scope.name = data.name;
   }).
-  controller('MyCtrl2', function ($scope) {
-    // write Ctrl here
-
+  error(function (data, status, headers, config) {
+    $scope.name = 'Error!';
   });
+
+});
+
+crossTrackControllers.controller('MyCtrl1', function ($scope) {
+  // write Ctrl here
+
+});
+
+crossTrackControllers.controller('MyCtrl2', function ($scope) {
+  // write Ctrl here
+
+});

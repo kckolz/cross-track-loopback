@@ -1,9 +1,13 @@
 'use strict';
 
+var crossTrackServices = angular.module('crossTrackServices', []);
+
 /* Services */
+crossTrackServices.factory('AppService', ['$http', '$q', function($http, $q){
 
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+	return{
+        getUsers: function(){
+            return users;
+        }
+    };
+}]);

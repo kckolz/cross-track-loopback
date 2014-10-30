@@ -10,8 +10,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "semantic-ui": "~0.17.0"
-  },
   "directory" : "public/"
 }
