@@ -1,0 +1,16 @@
+<h1>Exercise list</h1> 
+<hr> 
+
+<form name="exerciseForm" novalidate ng-submit="addExercise()"> 
+  <div class="form-group" ng-class="{'has-error': exerciseForm.content.$invalid && exerciseForm.content.$dirty}"> 
+    <input type="text" class="form-control focus" name="content" placeholder="Name" autocomplete="off" required ng-model="newExercise.name"> 
+    <span class="has-error control-label" ng-show=" exerciseForm.content.$invalid && exerciseForm.content.$dirty"> Content is required. </span> 
+  </div> 
+  <button class="btn btn-default" ng-disabled="exerciseForm.$invalid">Add</button>
+</form> 
+<hr> 
+<div class="list-group"> 
+  <a class="list-group-item" ng-repeat="exercise in exercises">{{exercise.name}}&nbsp; 
+    <i class="glyphicon glyphicon-remove pull-right" ng-click="removeExercise(exercise)"></i>
+  </a> 
+</div>
